@@ -105,64 +105,65 @@ LeftGroupBox:AddButton("Level 8 (Light's Out)", Level8)
 LeftGroupBox:AddLabel("Level 10 Do it manually, the key is in one of the corners on a locker.")
 
 mouse.KeyDown:connect(function(key)
-    if key == "Keypad0" then
+    if key == "0" then
 		Twn(Char:WaitForChild("HumanoidRootPart"), CFrame.new(x, y, z), 0.1);
     end
 end)
 
 mouse.KeyDown:connect(function(key)
-    if key == "Keypad1" then
+    if key == "1" then
 		Twn(Char:WaitForChild("HumanoidRootPart"), CFrame.new(x2, y2, z2), 0.1);
     end
 end)
 
 mouse.KeyDown:connect(function(key)
-    if key == "Keypad2" then
+    if key == "2" then
 		Twn(Char:WaitForChild("HumanoidRootPart"), CFrame.new(x3, y3, z3), 0.1);
     end
 end)
 
 mouse.KeyDown:connect(function(key)
-    if key == "Keypad3" then
+    if key == "3" then
 		Twn(Char:WaitForChild("HumanoidRootPart"), CFrame.new(x4, y4, z4), 0.1);
     end
 end)
 
 mouse.KeyDown:connect(function(key)
-    if key == "Keypad4" then
+    if key == "4" then
 		Twn(Char:WaitForChild("HumanoidRootPart"), CFrame.new(x5, y5, z5), 0.1);
     end
 end)
 
 mouse.KeyDown:connect(function(key)
-    if key == "Keypad5" then
+    if key == "5" then
 		Twn(Char:WaitForChild("HumanoidRootPart"), CFrame.new(x6, y6, z6), 0.1);
     end
 end)
 
 mouse.KeyDown:connect(function(key)
-    if key == "Keypad6" then
+    if key == "6" then
 		Twn(Char:WaitForChild("HumanoidRootPart"), CFrame.new(x7, y7, z7), 0.1);
     end
 end)
 
 mouse.KeyDown:connect(function(key)
-    if key == "Keypad7" then
+    if key == "7" then
 		Twn(Char:WaitForChild("HumanoidRootPart"), CFrame.new(x8, y8, z8), 0.1);
     end
 end)
 
 mouse.KeyDown:connect(function(key)
-    if key == "Keypad8" then
+    if key == "8" then
 		Twn(Char:WaitForChild("HumanoidRootPart"), CFrame.new(x9, y9, z9), 0.1);
     end
 end)
 
 mouse.KeyDown:connect(function(key)
-    if key == "Keypad9" then
+    if key == "9" then
 		Twn(Char:WaitForChild("HumanoidRootPart"), CFrame.new(x10, y10, z10), 0.1);
     end
 end)
+
 
 
 
@@ -253,4 +254,5 @@ Options.FontColor:OnChanged(UpdateTheme);
 
 
 Library:Notify('Loaded UI!');
+
 
