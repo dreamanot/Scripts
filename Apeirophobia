@@ -1,0 +1,193 @@
+Library = loadstring(game:HttpGet('https://raw.githubusercontent.com/wally-rblx/LinoriaLib/main/Library.lua'))();
+
+function Twn(HRP, Place, Length)
+    local Twn =
+        game:GetService("TweenService"):Create(
+        HRP,
+        TweenInfo.new(Length, Enum.EasingStyle.Quad, Enum.EasingDirection.InOut),
+        {CFrame = Place}
+    )
+    Twn:Play()
+    Twn.Completed:Wait()
+end
+
+local Live = game:GetService("Workspace").Characters
+local Char = Live:WaitForChild(game.Players.LocalPlayer.Name)
+
+
+local Fonts = {};
+for Font, _ in next, Drawing.Fonts do
+	table.insert(Fonts, Font);
+end;
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+local PrimWindow = Library:CreateWindow('Apeirophobia?');
+Library:SetWatermark('Apeirophobia V0.01');
+Library:Notify('Loading UI...');
+
+local MainF = PrimWindow:AddTab('Main Functions');
+
+local LeftGroupBox = MainF:AddLeftGroupbox('Exits')
+
+local x, y, z = -898.149231, 11.6797743, -92.4646378; -- Level 0 Exit
+local x2, y2, z2 = -794.019958, -100.850189, -1076.2417; -- Level 1 Exit
+local x3, y3, z3 = -582.800415, -176.937714, -2545.83789; -- Level 2 Exit
+local x4, y4, z4 = 608.492065, 6.11551189, -108.194031; -- Level 3 Exit
+local x5, y5, z5 = -2211.15137, -51.0735779, 558.22583; -- Level 4 Exit
+local x6, y6, z6 = -609.96521, 10.6799974, 3556.01587; -- Level 5 Exit
+local x7, y7, z7 = 2577.81079, 3.55308533, -2556.1377; -- Level 6 (!) Exit
+local x8, y8, z8 = 1014.93469, 2.04531384, -2806.57861; -- Level The End Exit
+local x9, y9, z9 = -3173.29346, 3.14199162, -224.738846; -- Level 8 Exit
+local x10, y10, z10 = 3794.97607, 51.8909607, -436.077057; -- Level 9 Exit
+local x11, y11, z11 = -67.8901978, 3.87145472, -995.654297; -- Level 10 Exit
+
+local function Level0()
+	Twn(Char:WaitForChild("HumanoidRootPart"), CFrame.new(x, y, z), 0.1);
+	Twn(Char:WaitForChild("HumanoidRootPart"), CFrame.new(x, y, z), 0.1);
+	Twn(Char:WaitForChild("HumanoidRootPart"), CFrame.new(x, y, z), 0.1);
+end
+local function Level1()
+	Twn(Char:WaitForChild("HumanoidRootPart"), CFrame.new(x2, y2, z2), 0.1);
+	Twn(Char:WaitForChild("HumanoidRootPart"), CFrame.new(x2, y2, z2), 0.1);
+	Twn(Char:WaitForChild("HumanoidRootPart"), CFrame.new(x2, y2, z2), 0.1);
+end
+local function Level2()
+	Twn(Char:WaitForChild("HumanoidRootPart"), CFrame.new(x3, y3, z3), 0.1);
+	Twn(Char:WaitForChild("HumanoidRootPart"), CFrame.new(x3, y3, z3), 0.1);
+	Twn(Char:WaitForChild("HumanoidRootPart"), CFrame.new(x3, y3, z3), 0.1);
+end
+local function Level3()
+	Twn(Char:WaitForChild("HumanoidRootPart"), CFrame.new(x4, y4, z4), 0.1);
+	Twn(Char:WaitForChild("HumanoidRootPart"), CFrame.new(x4, y4, z4), 0.1);
+	Twn(Char:WaitForChild("HumanoidRootPart"), CFrame.new(x4, y4, z4), 0.1);
+end
+local function Level4()
+	Twn(Char:WaitForChild("HumanoidRootPart"), CFrame.new(x5, y5, z5), 0.1);
+	Twn(Char:WaitForChild("HumanoidRootPart"), CFrame.new(x5, y5, z5), 0.1);
+	Twn(Char:WaitForChild("HumanoidRootPart"), CFrame.new(x5, y5, z5), 0.1);
+end
+local function Level5()
+	Twn(Char:WaitForChild("HumanoidRootPart"), CFrame.new(x6, y6, z6), 0.1);
+	Twn(Char:WaitForChild("HumanoidRootPart"), CFrame.new(x6, y6, z6), 0.1);
+	Twn(Char:WaitForChild("HumanoidRootPart"), CFrame.new(x6, y6, z6), 0.1);
+end
+local function Level6()
+	Twn(Char:WaitForChild("HumanoidRootPart"), CFrame.new(x7, y7, z7), 0.1);
+	Twn(Char:WaitForChild("HumanoidRootPart"), CFrame.new(x7, y7, z7), 0.1);
+	Twn(Char:WaitForChild("HumanoidRootPart"), CFrame.new(x7, y7, z7), 0.1);
+end
+local function Level7()
+	Twn(Char:WaitForChild("HumanoidRootPart"), CFrame.new(x8, y8, z8), 0.1);
+	Twn(Char:WaitForChild("HumanoidRootPart"), CFrame.new(x8, y8, z8), 0.1);
+	Twn(Char:WaitForChild("HumanoidRootPart"), CFrame.new(x8, y8, z8), 0.1);
+end
+local function Level8()
+	Twn(Char:WaitForChild("HumanoidRootPart"), CFrame.new(x9, y9, z9), 0.1);
+	Twn(Char:WaitForChild("HumanoidRootPart"), CFrame.new(x9, y9, z9), 0.1);
+	Twn(Char:WaitForChild("HumanoidRootPart"), CFrame.new(x9, y9, z9), 0.1);
+end
+local function Level9()
+	Twn(Char:WaitForChild("HumanoidRootPart"), CFrame.new(x10, y10, z10), 0.1);
+	Twn(Char:WaitForChild("HumanoidRootPart"), CFrame.new(x10, y10, z10), 0.1);
+	Twn(Char:WaitForChild("HumanoidRootPart"), CFrame.new(x10, y10, z10), 0.1);
+end
+
+
+LeftGroupBox:AddButton("Level 0 (The Backrooms)", Level0)
+LeftGroupBox:AddButton("Level 1 (The PoolRooms)", Level1)
+LeftGroupBox:AddButton("Level 2 (The Windows)", Level2)
+LeftGroupBox:AddButton("Level 3 (Abandoned Office)", Level3)
+LeftGroupBox:AddButton("Level 4 (The Sewers)", Level4)
+LeftGroupBox:AddButton("Level 5 (Cave System)", Level5)
+LeftGroupBox:AddButton("Level ! (Run For Your Life)", Level6)
+LeftGroupBox:AddButton("Level 7 (The End)", Level7)
+LeftGroupBox:AddButton("Level 8 (Light's Out)", Level8)
+LeftGroupBox:AddLabel("Level 10 Do it manually, the key is in one of the corners on a locker.")
+
+
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+local SettingsTab = PrimWindow:AddTab('Settings');
+
+local function UpdateTheme()
+    Library.BackgroundColor = Options.BackgroundColor.Value;
+    Library.MainColor = Options.MainColor.Value;
+    Library.AccentColor = Options.AccentColor.Value;
+    Library.AccentColorDark = Library:GetDarkerColor(Library.AccentColor);
+    Library.OutlineColor = Options.OutlineColor.Value;
+    Library.FontColor = Options.FontColor.Value;
+
+    Library:UpdateColorsUsingRegistry();
+end;
+
+local function SetDefault()
+    Options.FontColor:SetValueRGB(Color3.fromRGB(255, 255, 255));
+    Options.MainColor:SetValueRGB(Color3.fromRGB(28, 28, 28));
+    Options.BackgroundColor:SetValueRGB(Color3.fromRGB(20, 20, 20));
+    Options.AccentColor:SetValueRGB(Color3.fromRGB(0, 85, 255));
+    Options.OutlineColor:SetValueRGB(Color3.fromRGB(50, 50, 50));
+    Toggles.Rainbow:SetValue(false);
+
+    UpdateTheme();
+end;
+
+local function DestroyGui()
+    game:GetService("CoreGui").ScreenGui:Destroy()
+end
+
+local Theme = SettingsTab:AddLeftGroupbox('Theme');
+Theme:AddLabel('Background Color'):AddColorPicker('BackgroundColor', { Default = Library.BackgroundColor });
+Theme:AddLabel('Main Color'):AddColorPicker('MainColor', { Default = Library.MainColor });
+Theme:AddLabel('Accent Color'):AddColorPicker('AccentColor', { Default = Library.AccentColor });
+Theme:AddToggle('Rainbow', { Text = 'Rainbow Accent Color' });
+Theme:AddLabel('Outline Color'):AddColorPicker('OutlineColor', { Default = Library.OutlineColor });
+Theme:AddLabel('Font Color'):AddColorPicker('FontColor', { Default = Library.FontColor });
+Theme:AddButton('Default Theme', SetDefault);
+Theme:AddToggle('Keybinds', { Text = 'Show Keybinds Menu', Default = true }):OnChanged(function()
+    Library.KeybindFrame.Visible = Toggles.Keybinds.Value;
+end);
+Theme:AddToggle('Watermark', { Text = 'Show Watermark', Default = true }):OnChanged(function()
+    Library:SetWatermarkVisibility(Toggles.Watermark.Value);
+end);
+
+task.spawn(function()
+    while game:GetService('RunService').RenderStepped:Wait() do
+        if Toggles.Rainbow.Value then
+            local Registry = TestWindow.Holder.Visible and Library.Registry or Library.HudRegistry;
+
+            for Idx, Object in next, Registry do
+                for Property, ColorIdx in next, Object.Properties do
+                    if ColorIdx == 'AccentColor' or ColorIdx == 'AccentColorDark' then
+                        local Instance = Object.Instance;
+                        local yPos = Instance.AbsolutePosition.Y;
+
+                        local Mapped = Library:MapValue(yPos, 0, 1080, 0, 0.5) * 1.5;
+                        local Color = Color3.fromHSV((Library.CurrentRainbowHue - Mapped) % 1, 0.8, 1);
+
+                        if ColorIdx == 'AccentColorDark' then
+                            Color = Library:GetDarkerColor(Color);
+                        end;
+
+                        Instance[Property] = Color;
+                    end;
+                end;
+            end;
+        end;
+    end;
+end);
+
+Toggles.Rainbow:OnChanged(function()
+    if not Toggles.Rainbow.Value then
+        UpdateTheme();
+    end;
+end);
+Theme:AddButton('Destroy GUI', DestroyGui);
+Options.BackgroundColor:OnChanged(UpdateTheme);
+Options.MainColor:OnChanged(UpdateTheme);
+Options.AccentColor:OnChanged(UpdateTheme);
+Options.OutlineColor:OnChanged(UpdateTheme);
+Options.FontColor:OnChanged(UpdateTheme);
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+Library:Notify('Loaded UI!');
