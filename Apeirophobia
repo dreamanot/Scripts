@@ -617,4 +617,4 @@ CreditBox:AddLabel('Use it for your own learning')
 CreditBox:AddLabel('The script is messy though!')
 CreditBox:AddDivider()
 
-Library:Notify('Enjoy the script, the code is open full source. Be sure to change the keybinds if you wish.')
+Library:Notify('Enjoy the script, the code is open full source. Be sure to change the keybinds if you wish. MENU TOGGLE BUTTON IS (DELETE)')
