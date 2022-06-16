@@ -303,6 +303,20 @@ LeftGroupBox:AddLabel('Level 10'):AddKeyPicker('KeyPicker11', {
     NoUI = false,
 })
 
+Tab1:AddLabel('GUI Refresh'):AddKeyPicker('KeyPicker12', {
+
+
+    Default = 'V',
+    SyncToggleState = false, 
+
+
+    Mode = 'Toggle',
+
+    Text = 'Level 10',
+    NoUI = false,
+})
+
+
 Options.KeyPicker:OnClick(function()
     Twn(Char:WaitForChild("HumanoidRootPart"), CFrame.new(x, y, z), 0);
     print('Keybind clicked!', Options.KeyPicker.Value)
@@ -367,6 +381,14 @@ Options.KeyPicker11:OnClick(function()
     Twn(Char:WaitForChild("HumanoidRootPart"), CFrame.new(x11, y11, z11), 0);
     print('Keybind clicked!', Options.KeyPicker.Value)
     Library:Notify('Teleported near Level 10 Exit')
+end)
+
+Options.KeyPicker12:OnClick(function()
+    print('GUI being refreshed!', Options.KeyPicker.Value)
+    Library:Notify('GUI Refreshing in 0.87 seconds')
+    game:GetService("CoreGui").ScreenGui:Destroy()
+    game:GetService("CoreGui").ScreenGui:Destroy()
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/dreamanot/Scripts/main/Apeirophobia'))();
 end)
 
 
@@ -513,6 +535,19 @@ task.spawn(function()
     end
 end)
 
+task.spawn(function()
+    while true do
+        wait(1)
+
+        local state = Options.KeyPicker11:GetState()
+        if state then
+            print('KeyPicker12 is being held down')
+        end
+
+        if Library.Unloaded then break end
+    end
+end)
+
 Options.KeyPicker:SetValue({ 'Zero', 'Toggle' })
 
 Options.KeyPicker2:SetValue({ 'One', 'Toggle' })
@@ -534,6 +569,8 @@ Options.KeyPicker9:SetValue({ 'Eight', 'Toggle' })
 Options.KeyPicker10:SetValue({ 'Nine', 'Toggle' })
 
 Options.KeyPicker11:SetValue({ 'P', 'Toggle' })
+
+Options.KeyPicker12:SetValue({ 'V', 'Toggle' })
 
 Library:SetWatermarkVisibility(true)
 
