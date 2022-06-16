@@ -13,9 +13,6 @@ function Twn(HRP, Place, Length)
     Twn.Completed:Wait()
 end
 
-local Live = game:GetService("Workspace").Characters
-local Char = Live:WaitForChild(game.Players.LocalPlayer.Name)
-
 local x, y, z = -898.149231, 11.6797743, -92.4646378; -- Level 0 Exit
 local x2, y2, z2 = -794.019958, -100.850189, -1076.2417; -- Level 1 Exit
 local x3, y3, z3 = -582.800415, -176.937714, -2545.83789; -- Level 2 Exit
@@ -26,9 +23,6 @@ local x7, y7, z7 = 2577.81079, 3.55308533, -2556.1377; -- Level 6 (!) Exit
 local x8, y8, z8 = 1014.93469, 2.04531384, -2806.57861; -- Level The End Exit
 local x9, y9, z9 = -3173.29346, 3.14199162, -224.738846; -- Level 8 Exit
 local x10, y10, z10 = 3794.97607, 51.8909607, -436.077057; -- Level 9 Exit
-local x11, y11, z11 = -67.8901978, 3.87145472, -995.654297; -- Level 10 Exit
-
-
 
 
 local repo = 'https://raw.githubusercontent.com/wally-rblx/LinoriaLib/main/'
@@ -55,6 +49,7 @@ local LeftGroupBox = Tabs.Main:AddLeftGroupbox('Teleports')
 local TabBox = Tabs.Main:AddRightTabbox('Extras')
 
 local Tab1 = TabBox:AddTab('|Extras|')
+local Tab2 = TabBox:AddTab('|Other Levels|')
 
 local FB = Tab1:AddButton('Full Bright', function ()
     game:GetService("Lighting").Brightness = 2
@@ -76,6 +71,137 @@ local NoFog = FB:AddButton('No Fog', function ()
     Library:Notify('Removed All Fog')
 end)
 
+local ExitESP = Tab1:AddButton('Exit ESP', function ()
+    local function Destroyed(x)
+        if x.Parent then return false end
+        local _, result = pcall(function() x.Parent = x end)
+        return result:match("locked") and true or false
+        end
+        
+        local function createGui(parent)
+        local gui = Instance.new("BillboardGui")
+        local tl = Instance.new("TextLabel")
+        
+        gui.Parent = parent
+        gui.AlwaysOnTop = true
+        gui.Size = UDim2.new(7,0, 4,0)
+        gui.StudsOffset = Vector3.new(0, 3, 0)
+        
+        tl.Parent = gui
+        tl.Size = UDim2.new(1,0, 1,0)
+        tl.BackgroundTransparency = 1
+        tl.TextScaled = true
+        tl.TextColor3 = Color3.new(0, 1, 0)
+        tl.Text = "Exit"
+        
+        parent.Changed:Connect(function()
+        if Destroyed(parent) == true then
+        gui:Destroy()
+        end
+        end)
+        end
+        
+        if game.Workspace.Buildings:FindFirstChild("0") then
+        local part = game.Workspace.Buildings["0"].Exits.Part
+        
+        createGui(part)
+        elseif game.Workspace.Buildings:FindFirstChild("1") then
+        local part = game.Workspace.Buildings.Rendered.Level2Entrance.Gate
+        
+        createGui(part)
+        elseif game.Workspace.Buildings:FindFirstChild("2") then
+        local part = game.Workspace.Buildings["2"].Exits.Part
+        
+        createGui(part)
+        elseif game.Workspace.Buildings:FindFirstChild("3") then
+        local part1 = game.Workspace.Buildings.Rendered.Level4Entrance.EntrancePart
+        local part = game.Workspace.Buildings.Rendered.Level4Entrance.Part
+        
+        createGui(part1)
+        elseif game.Workspace.Buildings:FindFirstChild("4") then
+        local part = game.Workspace.Buildings["4"].Exit.Part
+        
+        createGui(part)
+        elseif game.Workspace.Buildings:FindFirstChild("5") then
+        local part = game.Workspace.Buildings["5"].Exits.Part
+        
+        createGui(part)
+        end
+    Library:Notify('Enabled Exit ESP')
+end)
+
+local EntityESP = ExitESP:AddButton('Entity ESP', function ()
+    local folder = game.Workspace.Entities
+
+local function Destroyed(x)
+if x.Parent then return false end
+local _, result = pcall(function() x.Parent = x end)
+return result:match("locked") and true or false
+end
+
+for i, v in pairs(folder:GetChildren()) do
+if v.Name ~= "Studio" then
+local gui = Instance.new("BillboardGui")
+local tl = Instance.new("TextLabel")
+
+gui.Parent = v
+gui.AlwaysOnTop = true
+gui.Size = UDim2.new(5,0, 3,0)
+gui.StudsOffset = Vector3.new(0, 3, 0)
+
+tl.Parent = gui
+tl.Size = UDim2.new(1,0, 1,0)
+tl.BackgroundTransparency = 1
+tl.TextScaled = true
+tl.TextColor3 = Color3.new(185, 0, 0)
+tl.Text = v.Name
+end
+end
+Library:Notify('Entity Esp Enabled')
+end)
+
+local SimulationCoreESP = Tab1:AddButton('SCore ESP', function ()
+    local folder = game.Workspace.Ignored.Trophies
+
+local function Destroyed(x)
+if x.Parent then return false end
+local _, result = pcall(function() x.Parent = x end)
+return result:match("locked") and true or false
+end
+
+for _, v in pairs(folder:GetChildren()) do
+local gui = Instance.new("BillboardGui")
+local tl = Instance.new("TextLabel")
+
+gui.Parent = v
+gui.AlwaysOnTop = true
+gui.Size = UDim2.new(5,0, 3,0)
+gui.StudsOffset = Vector3.new(0, 3, 0)
+
+tl.Parent = gui
+tl.Size = UDim2.new(1,0, 1,0)
+tl.BackgroundTransparency = 1
+tl.TextScaled = true
+tl.TextColor3 = Color3.new(0, 20, 255)
+tl.Text = "S. Core"
+
+v.Changed:Connect(function()
+if Destroyed(v) == true then
+gui:Destroy()
+end
+end)
+end
+Library:Notify('Enabled Simulation Core ESP')
+end)
+
+local BillDelete = SimulationCoreESP:AddButton('Delete ESP', function ()
+    for __,v in pairs(game:GetService("Workspace"):GetDescendants()) do
+        if v.Name == "BillboardGui" then
+            v:Destroy()
+        end
+    end
+    Library:Notify('Deleted All ESP')
+end)
 
 
 local TT = FB:AddTooltip('Makes the game bright removing any dark rooms.')
@@ -84,57 +210,88 @@ local TT2 = NoFog:AddTooltip('Removes any FOG within the game making it clear.')
 
 
 local LVL0 = LeftGroupBox:AddButton('Level 0', function()
+    local Live = game:GetService("Workspace").Characters
+    local Char = Live:WaitForChild(game.Players.LocalPlayer.Name)
     Twn(Char:WaitForChild("HumanoidRootPart"), CFrame.new(x, y, z), 0);
     Library:Notify('Teleported near Level 0 Exit')
 end)
 
 local LVL1 = LVL0:AddButton('Level 1', function()
+    local Live = game:GetService("Workspace").Characters
+    local Char = Live:WaitForChild(game.Players.LocalPlayer.Name)
     Twn(Char:WaitForChild("HumanoidRootPart"), CFrame.new(x2, y2, z2), 0);
     Library:Notify('Teleported near Level 1 Exit')
 end)
 
 local LVL2 = LeftGroupBox:AddButton('Level 2', function ()
+    local Live = game:GetService("Workspace").Characters
+    local Char = Live:WaitForChild(game.Players.LocalPlayer.Name)
     Twn(Char:WaitForChild("HumanoidRootPart"), CFrame.new(x3, y3, z3), 0);
     Library:Notify('Teleported near Level 2 Exit')
 end)
 
 local LVL3 = LVL2:AddButton('Level 3', function ()
+    local Live = game:GetService("Workspace").Characters
+    local Char = Live:WaitForChild(game.Players.LocalPlayer.Name)
     Twn(Char:WaitForChild("HumanoidRootPart"), CFrame.new(x4, y4, z4), 0);
     Library:Notify('Teleported near Level 3 Exit')
 end)
 
 local LVL4 = LeftGroupBox:AddButton('Level 4', function ()
+    local Live = game:GetService("Workspace").Characters
+    local Char = Live:WaitForChild(game.Players.LocalPlayer.Name)
     Twn(Char:WaitForChild("HumanoidRootPart"), CFrame.new(x5, y5, z5), 0);
     Library:Notify('Teleported near Level 4 Exit')
 end)
 
 local LVL5 = LVL4:AddButton('Level 5', function ()
+    local Live = game:GetService("Workspace").Characters
+    local Char = Live:WaitForChild(game.Players.LocalPlayer.Name)
     Twn(Char:WaitForChild("HumanoidRootPart"), CFrame.new(x6, y6, z6), 0);
     Library:Notify('Teleported near Level 5 Exit')
 end)
 
 local LVL6 = LeftGroupBox:AddButton('Level 6', function ()
+    local Live = game:GetService("Workspace").Characters
+    local Char = Live:WaitForChild(game.Players.LocalPlayer.Name)
     Twn(Char:WaitForChild("HumanoidRootPart"), CFrame.new(x7, y7, z7), 0);
     Library:Notify('Teleported near Level 6 Exit')
 end)
 
 local LVL7 = LVL6:AddButton('Level 7', function ()
+    local Live = game:GetService("Workspace").Characters
+    local Char = Live:WaitForChild(game.Players.LocalPlayer.Name)
     Twn(Char:WaitForChild("HumanoidRootPart"), CFrame.new(x8, y8, z8), 0);
     Library:Notify('Teleported near Level 7 Exit')
 end)
 
 local LVL8 = LeftGroupBox:AddButton('Level 8', function ()
+    local Live = game:GetService("Workspace").Characters
+    local Char = Live:WaitForChild(game.Players.LocalPlayer.Name)
     Twn(Char:WaitForChild("HumanoidRootPart"), CFrame.new(x9, y9, z9), 0);
     Library:Notify('Teleported near Level 8 Exit')
 end)
 
 local LVL9 = LVL8:AddButton('Level 9', function ()
+    local Live = game:GetService("Workspace").Characters
+    local Char = Live:WaitForChild(game.Players.LocalPlayer.Name)
     Twn(Char:WaitForChild("HumanoidRootPart"), CFrame.new(x10, y10, z10), 0);
     Library:Notify('Teleported near Level 9 Exit')
 end)
 
-local LVL10 = LeftGroupBox:AddButton('Level 10', function ()
-    Twn(Char:WaitForChild("HumanoidRootPart"), CFrame.new(x10, y10, z10), 0);
+local LVL10 = LeftGroupBox:AddButton('Level 10 Key', function ()
+    local Live = game:GetService("Workspace").Characters
+    local Char = Live:WaitForChild(game.Players.LocalPlayer.Name)
+    local Key = game:GetService("Workspace").Ignored.Interacts.key.Position
+    Twn(Char:WaitForChild("HumanoidRootPart"), CFrame.new(Key), 0);
+    Library:Notify('Teleported near Level 10 Exit (You still need a Padlock Though)')
+end)
+
+local END = LVL10:AddButton('Level 10 Padlock', function ()
+    local Live = game:GetService("Workspace").Characters
+    local Char = Live:WaitForChild(game.Players.LocalPlayer.Name)
+    local Padlock = game:GetService("Workspace").Ignored.Interacts.padlock.Position
+    Twn(Char:WaitForChild("HumanoidRootPart"), CFrame.new(Padlock), 0);
     Library:Notify('Teleported near Level 10 Exit (You still need a Key Though)')
 end)
 
@@ -149,7 +306,8 @@ LVL6:AddTooltip('When clicked this button will take u to the level 6 Exit. (Run 
 LVL7:AddTooltip('When clicked this button will take u to the level 7 Exit. (The End)')
 LVL8:AddTooltip('When clicked this button will take u to the level 8 Exit. (Lights Out)')
 LVL9:AddTooltip('When clicked this button will take u to the level 9 Exit. (????)')
-LVL10:AddTooltip('When clicked this button will take u to the level 10 Exit. (????)')
+LVL10:AddTooltip('When clicked this button will take u to the nearest level 10 Key. (????)')
+END:AddTooltip('When clicked this button will take u to the nearest level 10 Padlock. (????)')
 
 LeftGroupBox:AddDivider()
 
@@ -290,99 +448,128 @@ LeftGroupBox:AddLabel('Level 9'):AddKeyPicker('KeyPicker10', {
     NoUI = false,
 })
 
-LeftGroupBox:AddLabel('Level 10'):AddKeyPicker('KeyPicker11', {
+Tab2:AddLabel('Level 10 Key'):AddKeyPicker('KeyPicker11', {
 
 
-    Default = 'P',
+    Default = 'LeftBracket',
     SyncToggleState = false, 
 
 
     Mode = 'Toggle',
 
-    Text = 'Level 10',
+    Text = 'Level 10 Key',
     NoUI = false,
 })
 
-Tab1:AddLabel('GUI Refresh'):AddKeyPicker('KeyPicker12', {
+Tab2:AddLabel('Level 10 Padlock'):AddKeyPicker('KeyPicker12', {
 
 
-    Default = 'V',
+    Default = 'RightBracket',
     SyncToggleState = false, 
 
 
     Mode = 'Toggle',
 
-    Text = 'GUI Refresh',
+    Text = 'Level 10 Padlock',
     NoUI = false,
 })
 
 
 Options.KeyPicker:OnClick(function()
+    local Live = game:GetService("Workspace").Characters
+    local Char = Live:WaitForChild(game.Players.LocalPlayer.Name)
     Twn(Char:WaitForChild("HumanoidRootPart"), CFrame.new(x, y, z), 0);
     print('Keybind clicked!', Options.KeyPicker.Value)
     Library:Notify('Teleported near Level 0 Exit')
 end)
 
 Options.KeyPicker2:OnClick(function()
+    local Live = game:GetService("Workspace").Characters
+    local Char = Live:WaitForChild(game.Players.LocalPlayer.Name)
     Twn(Char:WaitForChild("HumanoidRootPart"), CFrame.new(x2, y2, z2), 0);
     print('Keybind clicked!', Options.KeyPicker.Value)
     Library:Notify('Teleported near Level 1 Exit')
 end)
 
 Options.KeyPicker3:OnClick(function()
+    local Live = game:GetService("Workspace").Characters
+    local Char = Live:WaitForChild(game.Players.LocalPlayer.Name)
     Twn(Char:WaitForChild("HumanoidRootPart"), CFrame.new(x3, y3, z3), 0);
     print('Keybind clicked!', Options.KeyPicker.Value)
     Library:Notify('Teleported near Level 2 Exit')
 end)
 
 Options.KeyPicker4:OnClick(function()
+    local Live = game:GetService("Workspace").Characters
+    local Char = Live:WaitForChild(game.Players.LocalPlayer.Name)
     Twn(Char:WaitForChild("HumanoidRootPart"), CFrame.new(x4, y4, z4), 0);
     print('Keybind clicked!', Options.KeyPicker.Value)
     Library:Notify('Teleported near Level 3 Exit')
 end)
 
 Options.KeyPicker5:OnClick(function()
+    local Live = game:GetService("Workspace").Characters
+    local Char = Live:WaitForChild(game.Players.LocalPlayer.Name)
     Twn(Char:WaitForChild("HumanoidRootPart"), CFrame.new(x5, y5, z5), 0);
     print('Keybind clicked!', Options.KeyPicker.Value)
     Library:Notify('Teleported near Level 4 Exit')
 end)
 
 Options.KeyPicker6:OnClick(function()
+    local Live = game:GetService("Workspace").Characters
+    local Char = Live:WaitForChild(game.Players.LocalPlayer.Name)
     Twn(Char:WaitForChild("HumanoidRootPart"), CFrame.new(x6, y6, z6), 0);
     print('Keybind clicked!', Options.KeyPicker.Value)
     Library:Notify('Teleported near Level 5 Exit')
 end)
 
 Options.KeyPicker7:OnClick(function()
+    local Live = game:GetService("Workspace").Characters
+    local Char = Live:WaitForChild(game.Players.LocalPlayer.Name)
     Twn(Char:WaitForChild("HumanoidRootPart"), CFrame.new(x7, y7, z7), 0);
     print('Keybind clicked!', Options.KeyPicker.Value)
     Library:Notify('Teleported near Level 6 Exit')
 end)
 
 Options.KeyPicker8:OnClick(function()
+    local Live = game:GetService("Workspace").Characters
+    local Char = Live:WaitForChild(game.Players.LocalPlayer.Name)
     Twn(Char:WaitForChild("HumanoidRootPart"), CFrame.new(x8, y8, z8), 0);
     print('Keybind clicked!', Options.KeyPicker.Value)
     Library:Notify('Teleported near Level 7 Exit')
 end)
 
 Options.KeyPicker9:OnClick(function()
+    local Live = game:GetService("Workspace").Characters
+    local Char = Live:WaitForChild(game.Players.LocalPlayer.Name)
     Twn(Char:WaitForChild("HumanoidRootPart"), CFrame.new(x9, y9, z9), 0);
     print('Keybind clicked!', Options.KeyPicker.Value)
     Library:Notify('Teleported near Level 8 Exit')
 end)
 
 Options.KeyPicker10:OnClick(function()
+    local Live = game:GetService("Workspace").Characters
+    local Char = Live:WaitForChild(game.Players.LocalPlayer.Name)
     Twn(Char:WaitForChild("HumanoidRootPart"), CFrame.new(x10, y10, z10), 0);
     print('Keybind clicked!', Options.KeyPicker.Value)
     Library:Notify('Teleported near Level 9 Exit')
 end)
 
-Options.KeyPicker11:OnClick(function()
-    Twn(Char:WaitForChild("HumanoidRootPart"), CFrame.new(x11, y11, z11), 0);
+Options.KeyPicker12:OnClick(function()
+    local Live = game:GetService("Workspace").Characters
+    local Char = Live:WaitForChild(game.Players.LocalPlayer.Name)
+    Twn(Char:WaitForChild("HumanoidRootPart"), CFrame.new(Key), 0);
     print('Keybind clicked!', Options.KeyPicker.Value)
-    Library:Notify('Teleported near Level 10 Exit')
+    Library:Notify('Teleported to the nearest Level 10 Key')
 end)
 
+Options.KeyPicker11:OnClick(function()
+    local Live = game:GetService("Workspace").Characters
+    local Char = Live:WaitForChild(game.Players.LocalPlayer.Name)
+    Twn(Char:WaitForChild("HumanoidRootPart"), CFrame.new(Padlock), 0);
+    print('Keybind clicked!', Options.KeyPicker.Value)
+    Library:Notify('Teleported to the nearest Level 10 Padlock')
+end)
 
 task.spawn(function()
     while true do
@@ -527,6 +714,19 @@ task.spawn(function()
     end
 end)
 
+task.spawn(function()
+    while true do
+        wait(1)
+
+        local state = Options.KeyPicker12:GetState()
+        if state then
+            print('KeyPicker12 is being held down')
+        end
+
+        if Library.Unloaded then break end
+    end
+end)
+
 Options.KeyPicker:SetValue({ 'Zero', 'Toggle' })
 
 Options.KeyPicker2:SetValue({ 'One', 'Toggle' })
@@ -547,9 +747,10 @@ Options.KeyPicker9:SetValue({ 'Eight', 'Toggle' })
 
 Options.KeyPicker10:SetValue({ 'Nine', 'Toggle' })
 
-Options.KeyPicker11:SetValue({ 'P', 'Toggle' })
+Options.KeyPicker11:SetValue({ 'LeftBracket', 'Toggle' })
 
-Options.KeyPicker12:SetValue({ 'V', 'Toggle' })
+Options.KeyPicker12:SetValue({ 'RightBracket', 'Toggle' })
+
 
 Library:SetWatermarkVisibility(true)
 
