@@ -388,6 +388,8 @@ Options.KeyPicker12:OnClick(function()
     Library:Notify('GUI Refreshing in 0.87 seconds')
     wait(0.87)
     game:GetService("CoreGui").ScreenGui:Destroy()
+    game:GetService("CoreGui").ScreenGui:Destroy()
+    game:GetService("CoreGui").ScreenGui:Destroy()
     loadstring(game:HttpGet('https://raw.githubusercontent.com/dreamanot/Scripts/main/Apeirophobia'))();
 end)
 
