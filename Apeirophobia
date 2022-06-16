@@ -284,7 +284,7 @@ local LVL10 = LeftGroupBox:AddButton('Level 10 Key', function ()
     local Char = Live:WaitForChild(game.Players.LocalPlayer.Name)
     local Key = game:GetService("Workspace").Ignored.Interacts.key.Position
     Twn(Char:WaitForChild("HumanoidRootPart"), CFrame.new(Key), 0);
-    Library:Notify('Teleported near Level 10 Exit (You still need a Padlock Though)')
+    Library:Notify('Teleported near Level 10 Key (You still need a Padlock Though)')
 end)
 
 local END = LVL10:AddButton('Level 10 Padlock', function ()
@@ -292,7 +292,7 @@ local END = LVL10:AddButton('Level 10 Padlock', function ()
     local Char = Live:WaitForChild(game.Players.LocalPlayer.Name)
     local Padlock = game:GetService("Workspace").Ignored.Interacts.padlock.Position
     Twn(Char:WaitForChild("HumanoidRootPart"), CFrame.new(Padlock), 0);
-    Library:Notify('Teleported near Level 10 Exit (You still need a Key Though)')
+    Library:Notify('Teleported near Level 10 Padlock (You still need a Key Though)')
 end)
 
 
@@ -558,6 +558,7 @@ end)
 Options.KeyPicker12:OnClick(function()
     local Live = game:GetService("Workspace").Characters
     local Char = Live:WaitForChild(game.Players.LocalPlayer.Name)
+    local Key = game:GetService("Workspace").Ignored.Interacts.key.Position
     Twn(Char:WaitForChild("HumanoidRootPart"), CFrame.new(Key), 0);
     print('Keybind clicked!', Options.KeyPicker.Value)
     Library:Notify('Teleported to the nearest Level 10 Key')
@@ -566,6 +567,7 @@ end)
 Options.KeyPicker11:OnClick(function()
     local Live = game:GetService("Workspace").Characters
     local Char = Live:WaitForChild(game.Players.LocalPlayer.Name)
+    local Padlock = game:GetService("Workspace").Ignored.Interacts.padlock.Position
     Twn(Char:WaitForChild("HumanoidRootPart"), CFrame.new(Padlock), 0);
     print('Keybind clicked!', Options.KeyPicker.Value)
     Library:Notify('Teleported to the nearest Level 10 Padlock')
