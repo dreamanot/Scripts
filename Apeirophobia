@@ -312,7 +312,7 @@ Tab1:AddLabel('GUI Refresh'):AddKeyPicker('KeyPicker12', {
 
     Mode = 'Toggle',
 
-    Text = 'Level 10',
+    Text = 'GUI Refresh',
     NoUI = false,
 })
 
@@ -381,14 +381,6 @@ Options.KeyPicker11:OnClick(function()
     Twn(Char:WaitForChild("HumanoidRootPart"), CFrame.new(x11, y11, z11), 0);
     print('Keybind clicked!', Options.KeyPicker.Value)
     Library:Notify('Teleported near Level 10 Exit')
-end)
-
-Options.KeyPicker12:OnClick(function()
-    print('GUI being refreshed!', Options.KeyPicker.Value)
-    Library:Notify('GUI Refreshing in 0.87 seconds')
-    game:GetService("CoreGui").ScreenGui:Destroy()
-    game:GetService("CoreGui").ScreenGui:Destroy()
-    loadstring(game:HttpGet('https://raw.githubusercontent.com/dreamanot/Scripts/main/Apeirophobia'))();
 end)
 
 
@@ -529,19 +521,6 @@ task.spawn(function()
         local state = Options.KeyPicker11:GetState()
         if state then
             print('KeyPicker11 is being held down')
-        end
-
-        if Library.Unloaded then break end
-    end
-end)
-
-task.spawn(function()
-    while true do
-        wait(1)
-
-        local state = Options.KeyPicker11:GetState()
-        if state then
-            print('KeyPicker12 is being held down')
         end
 
         if Library.Unloaded then break end
