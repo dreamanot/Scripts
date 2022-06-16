@@ -163,7 +163,7 @@ LeftGroupBox:AddDivider()
 LeftGroupBox:AddLabel('Level 0'):AddKeyPicker('KeyPicker', {
 
 
-    Default = 'One',
+    Default = 'Zero',
     SyncToggleState = false, 
 
 
@@ -176,7 +176,7 @@ LeftGroupBox:AddLabel('Level 0'):AddKeyPicker('KeyPicker', {
 LeftGroupBox:AddLabel('Level 1'):AddKeyPicker('KeyPicker2', {
 
 
-    Default = 'Two',
+    Default = 'One',
     SyncToggleState = false, 
 
 
@@ -189,7 +189,7 @@ LeftGroupBox:AddLabel('Level 1'):AddKeyPicker('KeyPicker2', {
 LeftGroupBox:AddLabel('Level 2'):AddKeyPicker('KeyPicker3', {
 
 
-    Default = 'Three',
+    Default = 'Two',
     SyncToggleState = false, 
 
 
@@ -202,7 +202,7 @@ LeftGroupBox:AddLabel('Level 2'):AddKeyPicker('KeyPicker3', {
 LeftGroupBox:AddLabel('Level 3'):AddKeyPicker('KeyPicker4', {
 
 
-    Default = 'Four',
+    Default = 'Three',
     SyncToggleState = false, 
 
 
@@ -228,7 +228,7 @@ LeftGroupBox:AddLabel('Level 4'):AddKeyPicker('KeyPicker5', {
 LeftGroupBox:AddLabel('Level 5'):AddKeyPicker('KeyPicker6', {
 
 
-    Default = 'Four',
+    Default = 'Five',
     SyncToggleState = false, 
 
 
@@ -241,7 +241,7 @@ LeftGroupBox:AddLabel('Level 5'):AddKeyPicker('KeyPicker6', {
 LeftGroupBox:AddLabel('Level 6'):AddKeyPicker('KeyPicker7', {
 
 
-    Default = 'Four',
+    Default = 'Six',
     SyncToggleState = false, 
 
 
@@ -254,7 +254,7 @@ LeftGroupBox:AddLabel('Level 6'):AddKeyPicker('KeyPicker7', {
 LeftGroupBox:AddLabel('Level 7'):AddKeyPicker('KeyPicker8', {
 
 
-    Default = 'Four',
+    Default = 'Seven',
     SyncToggleState = false, 
 
 
@@ -267,7 +267,7 @@ LeftGroupBox:AddLabel('Level 7'):AddKeyPicker('KeyPicker8', {
 LeftGroupBox:AddLabel('Level 8'):AddKeyPicker('KeyPicker9', {
 
 
-    Default = 'Four',
+    Default = 'Eight',
     SyncToggleState = false, 
 
 
@@ -280,7 +280,7 @@ LeftGroupBox:AddLabel('Level 8'):AddKeyPicker('KeyPicker9', {
 LeftGroupBox:AddLabel('Level 9'):AddKeyPicker('KeyPicker10', {
 
 
-    Default = 'Four',
+    Default = 'Nine',
     SyncToggleState = false, 
 
 
@@ -293,7 +293,7 @@ LeftGroupBox:AddLabel('Level 9'):AddKeyPicker('KeyPicker10', {
 LeftGroupBox:AddLabel('Level 10'):AddKeyPicker('KeyPicker11', {
 
 
-    Default = 'Four',
+    Default = 'P',
     SyncToggleState = false, 
 
 
@@ -303,10 +303,10 @@ LeftGroupBox:AddLabel('Level 10'):AddKeyPicker('KeyPicker11', {
     NoUI = false,
 })
 
-Tab1:AddLabel('GUI Refresh'):AddKeyPicker('KeyPicker11', {
+Tab1:AddLabel('GUI Refresh'):AddKeyPicker('KeyPicker12', {
 
 
-    Default = 'Four',
+    Default = 'V',
     SyncToggleState = false, 
 
 
