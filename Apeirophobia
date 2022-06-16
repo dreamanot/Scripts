@@ -558,7 +558,7 @@ end)
 Options.KeyPicker12:OnClick(function()
     local Live = game:GetService("Workspace").Characters
     local Char = Live:WaitForChild(game.Players.LocalPlayer.Name)
-    local Key = game:GetService("Workspace").Ignored.Interacts.key.Position
+    local Padlock = game:GetService("Workspace").Ignored.Interacts.padlock.Position
     Twn(Char:WaitForChild("HumanoidRootPart"), CFrame.new(Key), 0);
     print('Keybind clicked!', Options.KeyPicker.Value)
     Library:Notify('Teleported to the nearest Level 10 Key')
@@ -567,7 +567,7 @@ end)
 Options.KeyPicker11:OnClick(function()
     local Live = game:GetService("Workspace").Characters
     local Char = Live:WaitForChild(game.Players.LocalPlayer.Name)
-    local Padlock = game:GetService("Workspace").Ignored.Interacts.padlock.Position
+    local Key = game:GetService("Workspace").Ignored.Interacts.key.Position
     Twn(Char:WaitForChild("HumanoidRootPart"), CFrame.new(Padlock), 0);
     print('Keybind clicked!', Options.KeyPicker.Value)
     Library:Notify('Teleported to the nearest Level 10 Padlock')
